@@ -8,8 +8,11 @@ import os
 
 from collections import OrderedDict
 
-if(os.environ["ONE_ITER_TOOL_DEVICE"] != "cpu" and os.environ["ONE_ITER_TOOL_MODE"] != "others"):
+if(os.getenv('ONE_ITER_TOOL_DEVICE', None) != "cpu" or os.getenv('ONE_ITER_TOOL_MODE', None) != "input"):
+    print("stable diffusion device and mode",os.getenv('ONE_ITER_TOOL_DEVICE', None) ,os.getenv('ONE_ITER_TOOL_MODE', None))
     exit() 
+
+print("stable diffusion device and mode",os.getenv('ONE_ITER_TOOL_DEVICE', None) ,os.getenv('ONE_ITER_TOOL_MODE', None))
 
 storage_path = os.getenv('ONE_ITER_TOOL_STORAGE_PATH', 'one_iter_data')
 if not os.path.exists(storage_path):
