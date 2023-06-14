@@ -8,6 +8,9 @@ import os
 
 from collections import OrderedDict
 
+if(os.environ["ONE_ITER_TOOL_DEVICE"] != "cpu" and os.environ["ONE_ITER_TOOL_MODE"] != "others"):
+    exit() 
+
 storage_path = os.getenv('ONE_ITER_TOOL_STORAGE_PATH', 'one_iter_data')
 if not os.path.exists(storage_path):
     os.makedirs(storage_path)
