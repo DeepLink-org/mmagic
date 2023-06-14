@@ -17,6 +17,9 @@ if not os.path.exists(storage_path):
 devices = ['cpu', 'dipu']
 data_paths = []
 for device in devices:
+
+    print("stable diffusion ",device," begin")
+    
     os.environ["ONE_ITER_TOOL_DEVICE"] = device 
     os.environ["ONE_ITER_TOOL_MODE"] = "others"
     import capture
@@ -44,6 +47,8 @@ for device in devices:
             pkl.dump(iout_dict, f)
 
     data_paths.append(io_path)
+
+    print("stable diffusion ",device," pass")
 
 os.environ["ONE_ITER_TOOL_DEVICE"] = devices[0]
 os.environ["ONE_ITER_TOOL_DEVICE_COMPARE"] = devices[1]
