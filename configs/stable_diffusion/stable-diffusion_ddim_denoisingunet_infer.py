@@ -22,6 +22,10 @@ for device in devices:
     
     os.environ["ONE_ITER_TOOL_DEVICE"] = device 
     os.environ["ONE_ITER_TOOL_MODE"] = "others"
+    if (device=='cpu'):
+        os.environ["DIPU_MOCK_CUDA"] = "False"
+    else:
+        os.environ["DIPU_MOCK_CUDA"] = "True"
     import capture
     io_path = f'{storage_path}/data_{device}.pth'
     if device == 'dipu':
