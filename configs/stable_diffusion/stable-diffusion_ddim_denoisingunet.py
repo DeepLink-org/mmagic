@@ -48,7 +48,7 @@
 #     ])
 
 # Use DiffuserWrapper!
-stable_diffusion_v15_url = 'runwayml/stable-diffusion-v1-5'
+stable_diffusion_v15_url = 'data/stable-diffusion-v1-5'
 unet = dict(
     type='UNet2DConditionModel',
     subfolder='unet',
