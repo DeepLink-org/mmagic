@@ -56,6 +56,12 @@ else:
     os.environ["DIPU_MOCK_CUDA"] = "True"
 import capture
 io_path = f'{storage_path}/data_{device}.pth'
+
+
+if os.path.exists(io_path) :
+    print("File {} already exists. Skipping the others generating phrase.".format(io_path), flush = True)
+    exit(0)
+
 if device == 'dipu':
     import torch_dipu
 
