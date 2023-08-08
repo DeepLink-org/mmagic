@@ -54,7 +54,8 @@ if (device=='cpu'):
     os.environ["DIPU_MOCK_CUDA"] = "False"
 else:
     os.environ["DIPU_MOCK_CUDA"] = "True"
-import capture
+# import capture
+from capture import my_hook
 io_path = f'{storage_path}/data_{device}.pth'
 
 
@@ -75,7 +76,7 @@ prompt = 'A mecha robot in a favela in expressionist style'
 StableDiffuser = StableDiffuser.to('cuda')
 
 iout_dict = OrderedDict()
-capture.register_hook(StableDiffuser, iout_dict)
+my_hook.register_hook(StableDiffuser, iout_dict)
 
 
 image = StableDiffuser.infer(prompt,num_inference_steps=1)['samples'][0]

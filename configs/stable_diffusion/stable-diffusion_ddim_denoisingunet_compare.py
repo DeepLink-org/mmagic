@@ -11,5 +11,5 @@ data_paths_0 = f'{storage_path}/data_dipu.pth'
 data_paths_1 = f'{storage_path}/baseline/data_cpu.pth'
 
 from cp import compare
-compare(data_paths_0, data_paths_1)
+compare(data_paths_0, data_paths_1, compare_type='forward')
 print('stable diffusion successfully pass the all of the tests!')
